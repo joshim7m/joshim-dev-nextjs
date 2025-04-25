@@ -4,10 +4,10 @@ import { AlignRight } from "lucide-react";
 import Navbar from "./Navbar";
 
 const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState();
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
 
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsNavOpen( !isNavOpen );
   };
 
   const closeNav = () => {
