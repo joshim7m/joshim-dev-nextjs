@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme{
+  --font-playfair: Playwrite RO, cursive;
+  --font-inter: Inter, sans-serif;
+
+  --color-primary: #4361EE;
+  --color-accent: #E9F4FF;
+
+  --max-width-1170: 73.125rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  h5 {
+    font-size: var(--text-xl);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.fx-center{
+  @apply flex justify-center;
+}
+.fb{
+  @apply flex justify-between;
+}
+.fy-jb{
+  @apply flex justify-between;
+}
+.fy-center{
+  @apply flex items-center;
+}
+.fxy-center{
+  @apply flex justify-center items-center;
+}
+
+.primary_btn {
+  @apply bg-primary px-7 md:px-9 py-3 md:py-4 text-white rounded-[8px] max-w-max cursor-pointer hover:opacity-90
+}
+
+.btn_outline {
+  @apply border border-primary px-7 md:px-9 py-3 md:py-4 text-primary rounded-full max-w-max cursor-pointer hover:opacity-90
+}
+
+@layer components {
+  .section-heading {
+    position: relative;
+    max-width: max-content;
+  }
+  
+  .section-heading h2 {
+    text-align: center;
+    font-weight: 700; /* bold */
+  }
+  
+  .section-heading::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 140px;
+    height: 6px;
+    top: 100%;
+    left: 20%;
+    background-image: url(/heading-vector.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .badge{
+    background-color: #E9F4FF;
+    color: #4361EE;
+    font-weight: 400;
+    padding: 5px 20px;
+    border-radius: 8px;
+    max-width: max-content;
+  }
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
